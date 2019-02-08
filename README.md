@@ -1,8 +1,5 @@
 # ReviewScraper
-Python script for scraping product reviews from flipkart.com
-
-## Demo
-![Flipkart Review Scaraper Demo](/demo.gif?raw=true "Flipkart Review Scaraper Demo")
+Python script for scraping product reviews 
 
 ## Requirements
 * Beautiful Soup
