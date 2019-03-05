@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red0\green0\blue0;
+\red15\green118\blue174;\red241\green241\blue241;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0\c70196;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c54118\c73725;\cssrgb\c95686\c95686\c95686;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Notes:\
+\
+\
+\pard\pardeftab720\sl320\sa210\partightenfactor0
+
+\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 This dataset consists of a few million Amazon customer reviews (input text) and star ratings (output labels) for learning how to train fastText for sentiment analysis.\
+The idea here is a dataset is more than a toy - real business data on a reasonable scale - but can be trained in minutes on a modest laptop.\
+\
+\pard\pardeftab720\sl560\sa320\partightenfactor0
+
+\fs48 \cf4 \strokec4 Content\
+\pard\pardeftab720\sl320\sa210\partightenfactor0
+
+\fs28 \cf2 \strokec2 The\'a0{\field{\*\fldinst{HYPERLINK "https://github.com/facebookresearch/fastText/blob/master/tutorials/supervised-learning.md"}}{\fldrslt \cf5 \strokec5 fastText supervised learning tutorial}}\'a0requires data in the following format:\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f1 \cf2 \cb6 __label__<X> __label__<Y> ... <Text>\
+\pard\pardeftab720\sl320\sa210\partightenfactor0
+
+\f0 \cf2 \cb3 where X and Y are the class names. No quotes, all on one line.\
+In this case, the classes are\'a0
+\f1 \cb6 __label__1
+\f0 \cb3 \'a0and\'a0
+\f1 \cb6 __label__2
+\f0 \cb3 , and there is only one class per row.\
+\pard\pardeftab720\sl380\sa210\partightenfactor0
+
+\f1 \cf2 \cb6 __label__1
+\f0 \cb3 \'a0corresponds to 1- and 2-star reviews, and\'a0
+\f1 \cb6 __label__2
+\f0 \cb3 \'a0corresponds to 4- and 5-star reviews.\
+\pard\pardeftab720\sl320\sa210\partightenfactor0
+\cf2 (3-star reviews i.e. reviews with neutral sentiment were not included in the original),\
+The review titles, followed by ':' and a space, are prepended to the text.\
+Most of the reviews are in English, but there are a few in other languages, like Spanish.\
+\pard\pardeftab720\sl560\sa320\partightenfactor0
+
+\fs48 \cf4 \strokec4 Source\
+\pard\pardeftab720\sl320\sa210\partightenfactor0
+
+\fs28 \cf2 \strokec2 The data was lifted from\'a0{\field{\*\fldinst{HYPERLINK "https://drive.google.com/drive/folders/0Bz8a_Dbh9Qhbfll6bVpmNUtUcFdjYmF2SEpmZUZUcVNiMUw1TWN6RDV3a0JHT3kxLVhVR2M"}}{\fldrslt \cf5 \strokec5 Xiang Zhang's Google Drive dir}}, but it was in .csv format, not suitable for fastText.\
+\
+\
+\
+##### \
+from reactionrnn import reactionrnn\
+react = reactionrnn()\
+\
+react.predict("The best soundtrack ever to anything.: I'm reading a lot of reviews saying that this is the best 'game soundtrack' and I figured that I'd write a review to disagree a bit. This in my opinino is Yasunori Mitsuda's ultimate masterpiece. The music is timeless and I'm been listening to it for years now and its beauty simply refuses to fade.The price tag on this is pretty staggering I must say, but if you are going to buy any cd for this much money, this is the only one that I feel would be worth every penny")\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf4 \strokec4 OrderedDict([('haha', 0.6021),\
+             ('love', 0.3261),\
+             ('wow', 0.0718),\
+             ('sad', 0.0),\
+             ('angry', 0.0)])\
+\
+\
+\
+}
